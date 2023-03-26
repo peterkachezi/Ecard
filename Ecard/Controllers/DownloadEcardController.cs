@@ -17,7 +17,6 @@ namespace Ecard.Controllers
         {
             return View();
         }
-
         public async Task<ActionResult> Download(Guid MemberId)
         {
             try
@@ -31,22 +30,7 @@ namespace Ecard.Controllers
                 var ecardDetails = await DependantsService.GetEcardDetails(MemberId);
 
                 var k = ecardDetails.ToList();
-
-                List<EcardDetail> model = new List<EcardDetail>();
-
-                foreach (var details in k)
-                {
-                    EcardDetail obj = new EcardDetail();
-
-                    obj.PassportPhoto = details.PassportPhoto;
-
-                    obj.MemberId = details.MemberId;
-
-                    obj.Id = details.Id;
-
-                    model.Add(obj);
-                }
-
+        
                 if (data == null)
                 {
                     return null;

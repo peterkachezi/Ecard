@@ -68,7 +68,7 @@ namespace Ecard.Services
 
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage getData = await client.GetAsync("https://b67c-154-70-3-144.ap.ngrok.io/api/MemberAuth/GetEcardDetails?MemberId=8C804F42-A02D-44B1-9859-C052B0CC6319");
+                HttpResponseMessage getData = await client.GetAsync(ApiDetail.ApiUrl1 + "api/MemberAuth/GetEcardDetails?MemberId=" + MemberId + "");
 
                 if (getData.IsSuccessStatusCode)
                 {
