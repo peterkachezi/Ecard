@@ -43,6 +43,8 @@ namespace Ecard.Models
 
             }
         }
+
+
         public string Initials
         {
             get

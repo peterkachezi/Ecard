@@ -16,14 +16,14 @@ namespace Ecard.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Ecard : ReportClass {
+    public class EcardBackUp2 : ReportClass {
         
-        public Ecard() {
+        public EcardBackUp2() {
         }
         
         public override string ResourceName {
             get {
-                return "Ecard.rpt";
+                return "EcardBackUp2.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Ecard.Reports {
         
         public override string FullResourceName {
             get {
-                return "Ecard.Reports.Ecard.rpt";
+                return "Ecard.Reports.EcardBackUp2.rpt";
             }
             set {
                 // Do nothing
@@ -135,20 +135,12 @@ namespace Ecard.Reports {
                 return this.DataDefinition.ParameterFields[5];
             }
         }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Initials {
-            get {
-                return this.DataDefinition.ParameterFields[6];
-            }
-        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedEcard : Component, ICachedReport {
+    public class CachedEcardBackUp2 : Component, ICachedReport {
         
-        public CachedEcard() {
+        public CachedEcardBackUp2() {
         }
         
         [Browsable(false)]
@@ -185,7 +177,7 @@ namespace Ecard.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Ecard rpt = new Ecard();
+            EcardBackUp2 rpt = new EcardBackUp2();
             rpt.Site = this.Site;
             return rpt;
         }

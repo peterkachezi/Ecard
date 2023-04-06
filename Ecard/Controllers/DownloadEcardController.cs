@@ -12,7 +12,6 @@ namespace Ecard.Controllers
 {
     public class DownloadEcardController : Controller
     {
-
         public ActionResult Index()
         {
             return View();
@@ -27,9 +26,10 @@ namespace Ecard.Controllers
                 }
                 var data = await DependantsService.GetDependants(MemberId);
 
-                var ecardDetails = await DependantsService.GetEcardDetails(MemberId);
+                //var ecardDetails = await DependantsService.GetEcardDetails(MemberId);
+                var k = new List<Dependant>();
 
-                var k = ecardDetails.ToList();
+                //var k = ecardDetails.ToList();
         
                 if (data == null)
                 {
@@ -51,7 +51,7 @@ namespace Ecard.Controllers
 
                     rd.SetDataSource(k);
 
-                    rd.SetParameterValue("MemberNo", data.MemberNumber);
+                    rd.SetParameterValue("MemberNo", data.PrincipalNumber);
 
                     rd.SetParameterValue("Name", data.FullName);
 
@@ -62,6 +62,8 @@ namespace Ecard.Controllers
                     rd.SetParameterValue("Gender", data.Gender);
 
                     rd.SetParameterValue("Relation", data.Relation);
+
+                    rd.SetParameterValue("Initials", data.Initials);
 
                     Response.Buffer = false;
 
