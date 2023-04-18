@@ -31,6 +31,7 @@ namespace Ecard.Models
         public DateTime CreateDate { get; set; }
         public string SuspensionRemarks { get; set; }
         public string DeleteRemarks { get; set; }
+        public byte[] ImageUrl { get; set; }
         public int Age
         {
             get

@@ -3,8 +3,9 @@ using Ecard.Models;
 using Ecard.Services;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
-using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -20,6 +21,14 @@ namespace Ecard.Controllers
         {
             try
             {
+                WebClient webClient = new WebClient();
+
+                var key = ConfigurationManager.AppSettings["WebsiteUrl"];
+
+                var userLink = key + "/Home/GetPatientDetails/" + "20133";
+
+                byte[] Url = webClient.DownloadData("https://chart.googleapis.com/chart?cht=qr&chl=" + userLink + "&chs=160x160&chld=L|0");
+
                 if (MemberId == null || MemberId == Guid.Empty)
                 {
                     return null;
@@ -29,8 +38,9 @@ namespace Ecard.Controllers
                 //var ecardDetails = await DependantsService.GetEcardDetails(MemberId);
                 var k = new List<Dependant>();
 
+             
                 //var k = ecardDetails.ToList();
-        
+
                 if (data == null)
                 {
                     return null;

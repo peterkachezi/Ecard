@@ -647,6 +647,8 @@ namespace Ecard.DataSet {
             
             private global::System.Data.DataColumn columnpassportPhoto;
             
+            private global::System.Data.DataColumn columnImageUrl;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public EcardDataTable() {
@@ -690,6 +692,14 @@ namespace Ecard.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ImageUrlColumn {
+                get {
+                    return this.columnImageUrl;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -725,10 +735,11 @@ namespace Ecard.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public EcardRow AddEcardRow(byte[] passportPhoto) {
+            public EcardRow AddEcardRow(byte[] passportPhoto, byte[] ImageUrl) {
                 EcardRow rowEcardRow = ((EcardRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        passportPhoto};
+                        passportPhoto,
+                        ImageUrl};
                 rowEcardRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEcardRow);
                 return rowEcardRow;
@@ -752,6 +763,7 @@ namespace Ecard.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnpassportPhoto = base.Columns["passportPhoto"];
+                this.columnImageUrl = base.Columns["ImageUrl"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -759,6 +771,8 @@ namespace Ecard.DataSet {
             private void InitClass() {
                 this.columnpassportPhoto = new global::System.Data.DataColumn("passportPhoto", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpassportPhoto);
+                this.columnImageUrl = new global::System.Data.DataColumn("ImageUrl", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImageUrl);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1128,6 +1142,22 @@ namespace Ecard.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte[] ImageUrl {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableEcard.ImageUrlColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ImageUrl\' in table \'Ecard\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEcard.ImageUrlColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IspassportPhotoNull() {
                 return this.IsNull(this.tableEcard.passportPhotoColumn);
             }
@@ -1136,6 +1166,18 @@ namespace Ecard.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetpassportPhotoNull() {
                 this[this.tableEcard.passportPhotoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsImageUrlNull() {
+                return this.IsNull(this.tableEcard.ImageUrlColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetImageUrlNull() {
+                this[this.tableEcard.ImageUrlColumn] = global::System.Convert.DBNull;
             }
         }
         
